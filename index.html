@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatSphere - Premium Chat</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor2"></div>
+
+    <!-- Loading Screen -->
+    <div class="loader" id="loaderScreen">
+        <div class="loader-bg-particles">
+            <div class="particle p1"></div>
+            <div class="particle p2"></div>
+            <div class="particle p3"></div>
+            <div class="particle p4"></div>
+            <div class="particle p5"></div>
+        </div>
+        <div class="loader-content">
+            <div class="loader-brand-logo">
+                <div class="logo-circle-outer">
+                    <div class="logo-circle-inner">
+                        <img src="https://i.ibb.co/Kcncy0xX/gemini-image-2-a-surreal-and-vibrant-cinematic-photo-of-a-premium-modern-logo-for-a-chatting-ap-1.jpg" 
+                             alt="ChatSphere Logo" 
+                             class="logo-text logo-img" 
+                             style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+                    </div>
+                </div>
+                <div class="floating-hearts">
+                    <span class="heart-float">❤️</span>
+                    <span class="heart-float">💖</span>
+                    <span class="heart-float">💕</span>
+                </div>
+            </div>
+            <div class="loader-main">
+                <h1 class="loader-title">ChatSphere</h1>
+                <p class="loader-subtitle">Premium Chat Experience</p>
+                <div class="loader-dots">
+                    <div class="dot dot-1"></div>
+                    <div class="dot dot-2"></div>
+                    <div class="dot dot-3"></div>
+                    <div class="dot dot-4"></div>
+                </div>
+                <div class="loader-text">
+                    <span id="loaderMessage">Connecting to your chat...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main App -->
+    <div class="app-container" id="appContainer">
+        <!-- Login Screen -->
+        <div class="login-screen" id="loginScreen">
+            <!-- Animated Background -->
+            <div class="login-bg">
+                <div class="login-particle lp1"></div>
+                <div class="login-particle lp2"></div>
+                <div class="login-particle lp3"></div>
+                <div class="login-particle lp4"></div>
+                <div class="login-particle lp5"></div>
+                <div class="login-glow top-glow"></div>
+                <div class="login-glow bottom-glow"></div>
+            </div>
+
+            <!-- Main Login Card -->
+            <div class="login-wrapper">
+                <div class="login-card">
+                    <!-- Decorative Corner Elements -->
+                    <div class="card-corner top-left"></div>
+                    <div class="card-corner top-right"></div>
+                    <div class="card-corner bottom-left"></div>
+                    <div class="card-corner bottom-right"></div>
+
+                    <!-- Logo Section -->
+                    <div class="login-logo-section">
+                        <div class="login-logo-circle">
+                            <img src="https://i.ibb.co/Kcncy0xX/gemini-image-2-a-surreal-and-vibrant-cinematic-photo-of-a-premium-modern-logo-for-a-chatting-ap-1.jpg" 
+                                 alt="ChatSphere Logo" 
+                                 class="logo-emoji logo-img" 
+                                 style="width: 100%; height: 100%; border-radius: 16px; object-fit: cover;">
+                        </div>
+                        <div class="login-floating-hearts">
+                            <span class="login-heart">❤️</span>
+                            <span class="login-heart">💖</span>
+                        </div>
+                    </div>
+
+                    <!-- Header -->
+                    <div class="login-header">
+                        <h1 class="gradient-text">ChatSphere</h1>
+                        <p class="login-subtitle">Premium Chat Experience</p>
+                        <div class="header-underline"></div>
+                    </div>
+
+                    <!-- Form -->
+                    <div class="login-form">
+                        <!-- Tabs for Auth Methods -->
+                        <div class="auth-tabs">
+                            <button class="auth-tab-btn active" data-tab="email">
+                                <i class="fas fa-envelope"></i> Email
+                            </button>
+                            <button class="auth-tab-btn" data-tab="social">
+                                <i class="fas fa-share-alt"></i> Social
+                            </button>
+                        </div>
+
+                        <!-- Email/Password Tab -->
+                        <div class="auth-tab-content" id="email-tab">
+                            <div class="tab-title">
+                                <span id="tabTitle">Create Account</span>
+                                <span class="tab-toggle" style="cursor: pointer; font-size: 0.9em; color: #999;">Switch to Login</span>
+                            </div>
+
+                            <!-- Signup Form -->
+                            <div id="signupForm">
+                                <div class="login-input-group">
+                                    <div class="input-wrapper">
+                                        <i class="fas fa-user input-icon"></i>
+                                        <input type="text" id="signupUsername" placeholder="Choose your username" maxlength="20" class="premium-input">
+                                        <div class="input-highlight"></div>
+                                    </div>
+                                    <span class="input-helper">3-20 characters (letters, numbers, hyphens, underscores)</span>
+                                </div>
+
+                                <div class="login-input-group">
+                                    <div class="input-wrapper">
+                                        <i class="fas fa-envelope input-icon"></i>
+                                        <input type="email" id="signupEmail" placeholder="Enter your email" class="premium-input">
+                                        <div class="input-highlight"></div>
+                                    </div>
+                                    <span class="input-helper">We'll never share your email</span>
+                                </div>
+
+                                <div class="login-input-group">
+                                    <div class="input-wrapper">
+                                        <i class="fas fa-lock input-icon"></i>
+                                        <input type="password" id="signupPassword" placeholder="Create a password" class="premium-input">
+                                        <div class="input-highlight"></div>
+                                    </div>
+                                    <span class="input-helper">At least 6 characters</span>
+                                </div>
+
+                                <div class="login-input-group">
+                                    <div class="input-wrapper">
+                                        <i class="fas fa-lock input-icon"></i>
+                                        <input type="password" id="signupConfirmPassword" placeholder="Confirm password" class="premium-input">
+                                        <div class="input-highlight"></div>
+                                    </div>
+                                </div>
+
+                                <button class="btn-join-premium" id="signupBtn">
+                                    <span class="btn-text">Create Account</span>
+                                    <span class="btn-icon">✨</span>
+                                    <div class="btn-glow"></div>
+                                    <div class="btn-ripple"></div>
+                                </button>
+                            </div>
+
+                            <!-- Login Form (hidden by default) -->
+                            <div id="loginForm" style="display: none;">
+                                <div class="login-input-group">
+                                    <div class="input-wrapper">
+                                        <i class="fas fa-user input-icon"></i>
+                                        <input type="text" id="username" placeholder="Your username" maxlength="20" class="premium-input">
+                                        <div class="input-highlight"></div>
+                                    </div>
+                                    <span class="input-helper">Username or email address</span>
+                                </div>
+
+                                <div class="login-input-group">
+                                    <div class="input-wrapper">
+                                        <i class="fas fa-lock input-icon"></i>
+                                        <input type="password" id="password" placeholder="Enter your password" class="premium-input">
+                                        <div class="input-highlight"></div>
+                                    </div>
+                                </div>
+
+                                <button class="btn-join-premium" id="joinChat">
+                                    <span class="btn-text">Log In</span>
+                                    <span class="btn-icon">💌</span>
+                                    <div class="btn-glow"></div>
+                                    <div class="btn-ripple"></div>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Social Login Tab -->
+                        <div class="auth-tab-content" id="social-tab" style="display: none;">
+                            <div class="social-login-title">
+                                <h3>Sign In with Social Media</h3>
+                                <p>Quick & Secure Authentication</p>
+                            </div>
+
+                            <div class="social-buttons-container">
+                                <a href="/api/auth/google" class="social-btn google-btn" title="Sign in with Google">
+                                    <i class="fab fa-google"></i>
+                                    <span>Google</span>
+                                </a>
+                                <a href="/api/auth/facebook" class="social-btn facebook-btn" title="Sign in with Facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                    <span>Facebook</span>
+                                </a>
+                                <a href="/api/auth/github" class="social-btn github-btn" title="Sign in with GitHub">
+                                    <i class="fab fa-github"></i>
+                                    <span>GitHub</span>
+                                </a>
+                                <a href="/api/auth/instagram" class="social-btn instagram-btn" title="Sign in with Instagram">
+                                    <i class="fab fa-instagram"></i>
+                                    <span>Instagram</span>
+                                </a>
+                            </div>
+
+                            <div class="sso-divider">
+                                <span>or Enterprise SSO</span>
+                            </div>
+
+                            <div class="sso-container">
+                                <div class="login-input-group">
+                                    <div class="input-wrapper">
+                                        <i class="fas fa-envelope input-icon"></i>
+                                        <input type="email" id="ssoEmail" placeholder="Company email" class="premium-input">
+                                        <div class="input-highlight"></div>
+                                    </div>
+                                </div>
+                                <button class="btn-join-premium" id="ssoBtn">
+                                    <span class="btn-text">Continue with SSO</span>
+                                    <span class="btn-icon">🔐</span>
+                                    <div class="btn-glow"></div>
+                                    <div class="btn-ripple"></div>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Guest Login Option -->
+                        <div class="login-divider">
+                            <span>or continue as</span>
+                        </div>
+
+                        <div class="login-quick-actions">
+                            <button class="quick-btn" onclick="loginAsGuest('Guest');">
+                                <i class="fas fa-user-secret"></i>
+                                Guest
+                            </button>
+                            <button class="quick-btn" onclick="loginAsGuest('Lover');">
+                                <i class="fas fa-heart"></i>
+                                Lover
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Footer -->
+                    <div class="login-footer">
+                        <div class="footer-security">
+                            <i class="fas fa-shield-alt"></i>
+                            <p>End-to-end encrypted • No data stored</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Side Decorations -->
+                <div class="login-side-decor left-decor">
+                    <div class="decor-line"></div>
+                    <div class="decor-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+                <div class="login-side-decor right-decor">
+                    <div class="decor-line"></div>
+                    <div class="decor-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chat Screen -->
+        <div class="chat-screen" id="chatScreen" style="display: none;">
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <div class="sidebar-header">
+                    <h3><i class="fas fa-comments" style="margin-right: 0.5rem;"></i>ChatSphere</h3>
+                    <div class="header-buttons">
+                        <button class="btn-icon" id="profileBtn" title="My Profile">
+                            <i class="fas fa-user-circle"></i>
+                        </button>
+                        <button class="btn-icon" id="toggleSidebar">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="online-users" id="onlineUsers">
+                    <div class="user-item skeleton">
+                        <div class="user-avatar skeleton"></div>
+                        <div class="user-info">
+                            <div class="user-name skeleton"></div>
+                            <div class="user-status skeleton"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Chat -->
+            <div class="main-chat">
+                <div class="chat-header">
+                    <div class="chat-info">
+                        <h2>
+                            <span id="coupleIndicator" class="couple-badge" style="display: none;">💕 Couple Mode</span>
+                            <span id="chatTitle">Global Chat</span>
+                        </h2>
+                        <span class="user-count" id="userCount">0 online</span>
+                    </div>
+                    <div class="header-stats" id="headerStats">
+                        <div class="stat-badge">
+                            <span title="Love Meter">❤️ <span id="loveMeter">0</span>%</span>
+                        </div>
+                        <div class="stat-badge">
+                            <span title="Daily Streak">🔥 <span id="dailyStreak">0</span></span>
+                        </div>
+                        <div class="stat-badge">
+                            <span title="Days Together">💕 <span id="daysTogether">0</span>d</span>
+                        </div>
+                    </div>
+                    <div class="chat-actions">
+                        <button class="btn-icon" id="themeBtn" title="Couple Themes">
+                            <i class="fas fa-palette"></i>
+                        </button>
+                        <button class="btn-icon" id="coupleFeatureBtn" title="Couple Features">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                        <button class="btn-icon" id="leaveChat">
+                            <i class="fas fa-sign-out-alt"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="messages-container" id="messagesContainer">
+                    <div class="welcome-message">
+                        <div class="welcome-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h3>Welcome to ChatSphere!</h3>
+                        <p>Start chatting with others around the world</p>
+                    </div>
+                </div>
+
+                <div class="message-input-container">
+                    <!-- Quick reactions bar -->
+                    <div class="reactions-bar" id="reactionsBar" style="display: none;">
+                        <button class="reaction-btn" data-reaction="❤️" title="Love">❤️</button>
+                        <button class="reaction-btn" data-reaction="💖" title="Love">💖</button>
+                        <button class="reaction-btn" data-reaction="💘" title="Kiss">💘</button>
+                        <button class="reaction-btn" data-reaction="😍" title="Cute">😍</button>
+                        <button class="reaction-btn" data-reaction="🥰" title="Aww">🥰</button>
+                        <button class="reaction-btn" data-reaction="😘" title="Kiss">😘</button>
+                        <button class="reaction-btn" data-reaction="🔥" title="Hot">🔥</button>
+                        <button class="reaction-btn" data-reaction="✨" title="Sparkle">✨</button>
+                    </div>
+
+                    <!-- Stickers bar -->
+                    <div class="stickers-bar" id="stickersBar" style="display: none;">
+                        <button class="sticker-btn" data-sticker="💐">💐</button>
+                        <button class="sticker-btn" data-sticker="🌹">🌹</button>
+                        <button class="sticker-btn" data-sticker="🎀">🎀</button>
+                        <button class="sticker-btn" data-sticker="💝">💝</button>
+                        <button class="sticker-btn" data-sticker="💍">💍</button>
+                        <button class="sticker-btn" data-sticker="👑">👑</button>
+                        <button class="sticker-btn" data-sticker="🌙">🌙</button>
+                        <button class="sticker-btn" data-sticker="⭐">⭐</button>
+                        <button class="sticker-btn" data-sticker="🎂">🎂</button>
+                        <button class="sticker-btn" data-sticker="🍰">🍰</button>
+                        <button class="sticker-btn" data-sticker="🍫">🍫</button>
+                        <button class="sticker-btn" data-sticker="🍓">🍓</button>
+                    </div>
+
+                    <div class="message-input-wrapper">
+                        <div class="input-toolbar">
+                            <button class="tool-btn" id="showReactionsBtn" title="Quick Reactions">
+                                <i class="fas fa-grin"></i>
+                            </button>
+                            <button class="tool-btn" id="showStickersBtn" title="Cute Stickers">
+                                <i class="fas fa-star"></i>
+                            </button>
+                            <button class="tool-btn" id="missYouBtn" title="Miss You!">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                            <button class="tool-btn" id="scheduleMsgBtn" title="Schedule Message">
+                                <i class="fas fa-clock"></i>
+                            </button>
+                            <button class="tool-btn" id="secretMsgBtn" title="Secret Message">
+                                <i class="fas fa-lock"></i>
+                            </button>
+                        </div>
+                        
+                        <div class="input-group large">
+                            <input type="text" id="messageInput" placeholder="Type your message..." maxlength="500">
+                            <button class="emoji-btn" id="emojiBtn">
+                                <i class="fas fa-face-smile"></i>
+                            </button>
+                            <button class="tool-btn" id="voiceRecordBtn" title="Voice Message" style="margin-left: 10px;">
+                                <i class="fas fa-microphone"></i>
+                            </button>
+                            <button class="tool-btn" id="searchBtn" title="Search Messages">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                        <button class="btn-send" id="sendMessage">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                        <button class="tool-btn" id="premiumSettingsBtn" title="Premium Features">
+                            <i class="fas fa-crown"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- Typing indicator -->
+                    <div class="typing-indicator" id="typingIndicator" style="display: none;">
+                        <span></span><span></span><span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Profile Modal -->
+    <div class="modal" id="profileModal" style="display: none;">
+        <div class="modal-overlay" id="modalOverlay"></div>
+        <div class="modal-content profile-modal">
+            <div class="modal-header">
+                <h2>Edit Profile</h2>
+                <button class="btn-close" id="closeProfileModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Avatar Section -->
+                <div class="profile-avatar-section">
+                    <div class="profile-avatar-display">
+                        <div class="avatar-preview" id="avatarPreview">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <button class="btn-small" id="changeAvatarBtn">
+                            <i class="fas fa-camera"></i> Change
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Form Fields -->
+                <div class="profile-form">
+                    <div class="form-group">
+                        <label>Username</label>
+                        <input type="text" id="profileUsername" placeholder="Your username" maxlength="20" disabled>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Bio</label>
+                        <textarea id="profileBio" placeholder="Tell us about yourself" maxlength="150"></textarea>
+                        <small id="bioCount">0/150</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Status</label>
+                        <select id="profileStatus">
+                            <option value="online">🟢 Online</option>
+                            <option value="away">🟡 Away</option>
+                            <option value="busy">🔴 Busy</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Streak (Days)</label>
+                            <input type="number" id="profileStreak" placeholder="0" min="0" max="999">
+                        </div>
+                        <div class="form-group">
+                            <label>Theme Color</label>
+                            <div class="color-picker">
+                                <input type="color" id="profileColor" value="#667eea">
+                                <div class="color-preset" style="background: #667eea;" data-color="#667eea"></div>
+                                <div class="color-preset" style="background: #f5576c;" data-color="#f5576c"></div>
+                                <div class="color-preset" style="background: #00d4ff;" data-color="#00d4ff"></div>
+                                <div class="color-preset" style="background: #10b981;" data-color="#10b981"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Social Links</label>
+                        <div class="social-inputs">
+                            <div class="social-input">
+                                <i class="fab fa-twitter"></i>
+                                <input type="text" id="socialTwitter" placeholder="@username">
+                            </div>
+                            <div class="social-input">
+                                <i class="fab fa-github"></i>
+                                <input type="text" id="socialGithub" placeholder="username">
+                            </div>
+                            <div class="social-input">
+                                <i class="fab fa-linkedin"></i>
+                                <input type="text" id="socialLinkedin" placeholder="username">
+                            </div>
+                            <div class="social-input">
+                                <i class="fab fa-instagram"></i>
+                                <input type="text" id="socialInstagram" placeholder="@username">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn-secondary" id="cancelProfileBtn">Cancel</button>
+                <button class="btn-primary" id="saveProfileBtn">Save Profile</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- User Profile View Modal -->
+    <div class="modal" id="userProfileModal" style="display: none;">
+        <div class="modal-overlay" id="userProfileOverlay"></div>
+        <div class="modal-content user-profile-modal">
+            <button class="btn-close" id="closeUserProfileModal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="user-profile-card" id="userProfileCard">
+                <!-- Populated dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Theme Selector Modal -->
+    <div class="modal" id="themeModal" style="display: none;">
+        <div class="modal-overlay" id="themeOverlay"></div>
+        <div class="modal-content theme-modal">
+            <div class="modal-header">
+                <h2>Choose Theme 🎨</h2>
+                <button class="btn-close" id="closeThemeModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="theme-grid">
+                    <div class="theme-option" data-theme="default">
+                        <div class="theme-preview" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
+                        <p>Classic</p>
+                    </div>
+                    <div class="theme-option" data-theme="pink">
+                        <div class="theme-preview" style="background: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%);"></div>
+                        <p>Pink Love 💖</p>
+                    </div>
+                    <div class="theme-option" data-theme="anime">
+                        <div class="theme-preview" style="background: linear-gradient(135deg, #ff6ec7 0%, #a78bfa 100%);"></div>
+                        <p>Anime 🌸</p>
+                    </div>
+                    <div class="theme-option" data-theme="darkLove">
+                        <div class="theme-preview" style="background: linear-gradient(135deg, #1a0f2e 0%, #300f3f 100%);"></div>
+                        <p>Dark Love 🌙</p>
+                    </div>
+                    <div class="theme-option" data-theme="sunset">
+                        <div class="theme-preview" style="background: linear-gradient(135deg, #ff6b6b 0%, #ffd93d 100%);"></div>
+                        <p>Sunset 🌅</p>
+                    </div>
+                    <div class="theme-option" data-theme="ocean">
+                        <div class="theme-preview" style="background: linear-gradient(135deg, #0077b6 0%, #00d4ff 100%);"></div>
+                        <p>Ocean 🌊</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Couple Features Modal -->
+    <div class="modal" id="coupleFeatureModal" style="display: none;">
+        <div class="modal-overlay" id="coupleOverlay"></div>
+        <div class="modal-content couple-feature-modal">
+            <div class="modal-header">
+                <h2>Couple Features 💕</h2>
+                <button class="btn-close" id="closeCoupleFeatureModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Tabs -->
+                <div class="feature-tabs">
+                    <button class="tab-btn active" data-tab="dash">Dashboard</button>
+                    <button class="tab-btn" data-tab="games">Games</button>
+                    <button class="tab-btn" data-tab="mood">Mood</button>
+                    <button class="tab-btn" data-tab="anniversary">Anniversary</button>
+                </div>
+
+                <!-- Dashboard Tab -->
+                <div class="tab-content active" id="dashTab">
+                    <div class="couple-stats">
+                        <div class="couple-stat-card">
+                            <div class="stat-emoji">❤️</div>
+                            <div class="stat-title">Love Meter</div>
+                            <div class="stat-value" id="loveMeterValue">0%</div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="loveMeterBar" style="width: 0%;"></div>
+                            </div>
+                        </div>
+
+                        <div class="couple-stat-card">
+                            <div class="stat-emoji">🔥</div>
+                            <div class="stat-title">Daily Streak</div>
+                            <div class="stat-value" id="streakValue">0</div>
+                            <p class="stat-hint">Days of messaging</p>
+                        </div>
+
+                        <div class="couple-stat-card">
+                            <div class="stat-emoji">💕</div>
+                            <div class="stat-title">Together</div>
+                            <div class="stat-value" id="togetherValue">0d</div>
+                            <p class="stat-hint">Set in profile</p>
+                        </div>
+
+                        <div class="couple-stat-card">
+                            <div class="stat-emoji">💝</div>
+                            <div class="stat-title">Shared Memories</div>
+                            <div class="stat-value" id="memoriesValue">0</div>
+                            <p class="stat-hint">Messages & moments</p>
+                        </div>
+                    </div>
+
+                    <div class="couple-actions">
+                        <button class="action-btn cute-btn" id="setAnniversaryBtn">
+                            <span class="emoji">🎉</span> Set Anniversary
+                        </button>
+                        <button class="action-btn cute-btn" id="setRelationshipBtn">
+                            <span class="emoji">💕</span> Couple Setup
+                        </button>
+                        <button class="action-btn cute-btn" id="viewTimelineBtn">
+                            <span class="emoji">📸</span> Memory Timeline
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Games Tab -->
+                <div class="tab-content" id="gamesTab">
+                    <div class="games-grid">
+                        <button class="game-card" id="truthOrDareBtn">
+                            <div class="game-emoji">🎲</div>
+                            <div class="game-title">Truth or Dare</div>
+                            <div class="game-desc">Couple edition</div>
+                        </button>
+                        <button class="game-card" id="ticTacToeBtn">
+                            <div class="game-emoji">✖️</div>
+                            <div class="game-title">Tic Tac Toe</div>
+                            <div class="game-desc">Quick game</div>
+                        </button>
+                        <button class="game-card" id="loveQuizBtn">
+                            <div class="game-emoji">💌</div>
+                            <div class="game-title">Love Quiz</div>
+                            <div class="game-desc">Know each other</div>
+                        </button>
+                        <button class="game-card" id="spinWheelBtn">
+                            <div class="game-emoji">🎡</div>
+                            <div class="game-title">Spin the Wheel</div>
+                            <div class="game-desc">Cute tasks</div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Mood Tab -->
+                <div class="tab-content" id="moodTab">
+                    <div class="mood-selector">
+                        <p>How are you feeling? 💭</p>
+                        <div class="mood-options">
+                            <button class="mood-btn" data-mood="happy">😊 Happy</button>
+                            <button class="mood-btn" data-mood="love">😍 In Love</button>
+                            <button class="mood-btn" data-mood="miss">🥺 Miss You</button>
+                            <button class="mood-btn" data-mood="angry">😡 Angry</button>
+                            <button class="mood-btn" data-mood="sad">😢 Sad</button>
+                            <button class="mood-btn" data-mood="tired">😴 Tired</button>
+                            <button class="mood-btn" data-mood="excited">🤩 Excited</button>
+                            <button class="mood-btn" data-mood="cool">😎 Cool</button>
+                        </div>
+                        <p class="mood-hint">😍 Mood Sync: When both set the same mood, hearts appear!</p>
+                    </div>
+                </div>
+
+                <!-- Anniversary Tab -->
+                <div class="tab-content" id="anniversaryTab">
+                    <div class="anniversary-section">
+                        <h3>📅 Anniversary & Countdowns</h3>
+                        <div class="anniversary-form">
+                            <input type="date" id="anniversaryDate" placeholder="Anniversary Date">
+                            <input type="date" id="nextDateDate" placeholder="Next Date Planned">
+                            <button class="action-btn cute-btn" id="saveAnniversaryBtn">Save Dates</button>
+                        </div>
+                        <div class="anniversary-display" id="anniversaryDisplay">
+                            <!-- Populated dynamically -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Schedule Message Modal -->
+    <div class="modal" id="scheduleModal" style="display: none;">
+        <div class="modal-overlay" id="scheduleOverlay"></div>
+        <div class="modal-content schedule-modal">
+            <div class="modal-header">
+                <h2>Schedule Message ⏰</h2>
+                <button class="btn-close" id="closeScheduleModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Message</label>
+                    <textarea id="scheduleMessageText" placeholder="What would you like to say?" maxlength="200"></textarea>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Date</label>
+                        <input type="date" id="scheduleDate">
+                    </div>
+                    <div class="form-group">
+                        <label>Time</label>
+                        <input type="time" id="scheduleTime">
+                    </div>
+                </div>
+                <button class="action-btn cute-btn" id="confirmScheduleBtn">Schedule Message</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Secret Message Modal -->
+    <div class="modal" id="secretModal" style="display: none;">
+        <div class="modal-overlay" id="secretOverlay"></div>
+        <div class="modal-content secret-modal">
+            <div class="modal-header">
+                <h2>Secret Message 🔐</h2>
+                <button class="btn-close" id="closeSecretModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Write something only they can see by tapping! 💌</p>
+                <textarea id="secretMessageText" placeholder="Type your secret message..." maxlength="150"></textarea>
+                <button class="action-btn cute-btn" id="sendSecretBtn">Send Secret 🤫</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Couple Setup Modal -->
+    <div class="modal" id="coupleSetupModal" style="display: none;">
+        <div class="modal-overlay" id="coupleSetupOverlay"></div>
+        <div class="modal-content couple-setup-modal">
+            <div class="modal-header">
+                <h2>Couple Mode Setup 💕</h2>
+                <button class="btn-close" id="closeCoupleSetupModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Partner's Username</label>
+                    <input type="text" id="partnerUsername" placeholder="Enter their username">
+                    <small>Start a couple chat with your partner</small>
+                </div>
+                <div class="form-group">
+                    <label>Couple Nickname (Optional)</label>
+                    <input type="text" id="coupleNickname" placeholder="e.g., 'Baby & Jaan'" maxlength="30">
+                </div>
+                <div class="form-group">
+                    <label>Anniversary Date</label>
+                    <input type="date" id="coupleAnniversary">
+                </div>
+                <button class="action-btn cute-btn" id="startCoupleBtn">Start Couple Mode ❤️</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Voice Message Modal -->
+    <div class="modal" id="voiceModal" style="display: none;">
+        <div class="modal-overlay" id="voiceOverlay"></div>
+        <div class="modal-content voice-modal">
+            <div class="modal-header">
+                <h2>Voice Message 🎙️</h2>
+                <button class="btn-close" id="closeVoiceModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="voice-recorder" id="voiceRecorder">
+                    <div class="record-button-wrapper">
+                        <button class="record-btn" id="recordBtn">
+                            <i class="fas fa-microphone"></i>
+                        </button>
+                        <span class="record-status" id="recordStatus">Click to record</span>
+                    </div>
+                    <div class="voice-waveform" id="voiceWaveform">
+                        <div class="wave"></div>
+                        <div class="wave"></div>
+                        <div class="wave"></div>
+                        <div class="wave"></div>
+                        <div class="wave"></div>
+                    </div>
+                    <div class="record-time" id="recordTime">00:00</div>
+                </div>
+                <div class="voice-playback" id="voicePlayback" style="display: none;">
+                    <button class="play-btn" id="playVoiceBtn"><i class="fas fa-play"></i></button>
+                    <div class="playback-progress" id="playbackProgress">
+                        <div class="progress-bar" id="voiceProgressBar"></div>
+                    </div>
+                    <button class="action-btn cute-btn" id="sendVoiceBtn" style="width: 100%;">Send Voice Message</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Message Search Modal -->
+    <div class="modal" id="searchModal" style="display: none;">
+        <div class="modal-overlay" id="searchOverlay"></div>
+        <div class="modal-content search-modal">
+            <div class="modal-header">
+                <h2>Search Messages 🔍</h2>
+                <button class="btn-close" id="closeSearchModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Search in messages..." autofocus>
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="search-filters">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="user">Your Messages</button>
+                    <button class="filter-btn" data-filter="media">Media</button>
+                    <button class="filter-btn" data-filter="links">Links</button>
+                </div>
+                <div class="search-results" id="searchResults">
+                    <p class="search-hint">Start typing to search...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Message Reactions Modal -->
+    <div class="modal" id="reactionsModal" style="display: none;">
+        <div class="modal-overlay" id="reactionsOverlay"></div>
+        <div class="modal-content reactions-modal">
+            <div class="modal-header">
+                <h2>Message Reactions ❤️</h2>
+                <button class="btn-close" id="closeReactionsModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="reactions-grid">
+                    <button class="reaction-btn" data-reaction="❤️">❤️ Love</button>
+                    <button class="reaction-btn" data-reaction="😂">😂 Haha</button>
+                    <button class="reaction-btn" data-reaction="😨">😨 Wow</button>
+                    <button class="reaction-btn" data-reaction="😢">😢 Sad</button>
+                    <button class="reaction-btn" data-reaction="😡">😡 Angry</button>
+                    <button class="reaction-btn" data-reaction="👍">👍 Like</button>
+                    <button class="reaction-btn" data-reaction="🔥">🔥 Hot</button>
+                    <button class="reaction-btn" data-reaction="✨">✨ Awesome</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chat Analytics Modal -->
+    <div class="modal" id="analyticsModal" style="display: none;">
+        <div class="modal-overlay" id="analyticsOverlay"></div>
+        <div class="modal-content analytics-modal">
+            <div class="modal-header">
+                <h2>Chat Analytics 📊</h2>
+                <button class="btn-close" id="closeAnalyticsModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="analytics-grid">
+                    <div class="analytics-card">
+                        <div class="stat-emoji">💬</div>
+                        <div class="stat-label">Total Messages</div>
+                        <div class="stat-number" id="totalMessages">0</div>
+                    </div>
+                    <div class="analytics-card">
+                        <div class="stat-emoji">⏰</div>
+                        <div class="stat-label">Avg Response Time</div>
+                        <div class="stat-number" id="avgResponse">0s</div>
+                    </div>
+                    <div class="analytics-card">
+                        <div class="stat-emoji">🌙</div>
+                        <div class="stat-label">Most Active</div>
+                        <div class="stat-number" id="mostActive">Unknown</div>
+                    </div>
+                    <div class="analytics-card">
+                        <div class="stat-emoji">🏆</div>
+                        <div class="stat-label">Chat Score</div>
+                        <div class="stat-number" id="chatScore">0/100</div>
+                    </div>
+                </div>
+                <div class="analytics-chart">
+                    <h3>Weekly Activity</h3>
+                    <canvas id="activityChart" width="400" height="200"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Premium Settings Modal -->
+    <div class="modal" id="premiumSettingsModal" style="display: none;">
+        <div class="modal-overlay" id="premiumSettingsOverlay"></div>
+        <div class="modal-content premium-settings-modal">
+            <div class="modal-header">
+                <h2>Premium Settings 👑</h2>
+                <button class="btn-close" id="closePremiumSettingsModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="premium-features-list">
+                    <div class="premium-item">
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="dndMode" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                        <div>
+                            <div class="item-title">🌙 Do Not Disturb</div>
+                            <div class="item-desc">Mute notifications at specific times</div>
+                        </div>
+                    </div>
+
+                    <div class="premium-item">
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="readReceipts" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                        <div>
+                            <div class="item-title">✓ Read Receipts</div>
+                            <div class="item-desc">Show when messages are read</div>
+                        </div>
+                    </div>
+
+                    <div class="premium-item">
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="activeStatus" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                        <div>
+                            <div class="item-title">🟢 Active Status</div>
+                            <div class="item-desc">Show when you're online</div>
+                        </div>
+                    </div>
+
+                    <div class="premium-item">
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="encryptionMode" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                        <div>
+                            <div class="item-title">🔐 Encryption</div>
+                            <div class="item-desc">End-to-end encrypted chats</div>
+                        </div>
+                    </div>
+
+                    <div class="premium-item">
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="disappearingMode">
+                            <span class="toggle-slider"></span>
+                        </label>
+                        <div>
+                            <div class="item-title">👻 Disappearing Messages</div>
+                            <div class="item-desc">Auto-delete messages after 24h</div>
+                        </div>
+                    </div>
+
+                    <div class="premium-spacer"></div>
+
+                    <div class="premium-action">
+                        <button class="action-btn cute-btn" id="exportChatBtn" style="width: 100%;">
+                            <i class="fas fa-download"></i> Export Chat History
+                        </button>
+                    </div>
+
+                    <div class="premium-action">
+                        <button class="action-btn cute-btn" id="pinMessageBtn" style="width: 100%;">
+                            <i class="fas fa-thumbtack"></i> Show Pinned Messages
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pinned Messages Modal -->
+    <div class="modal" id="pinnedModal" style="display: none;">
+        <div class="modal-overlay" id="pinnedOverlay"></div>
+        <div class="modal-content pinned-modal">
+            <div class="modal-header">
+                <h2>Pinned Messages 📌</h2>
+                <button class="btn-close" id="closePinnedModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="pinned-list" id="pinnedList">
+                    <p class="empty-state">No pinned messages yet. Right-click on a message to pin it!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="contact-section" id="contactSection">
+        <div class="contact-container">
+            <div class="contact-wrapper">
+                <!-- Contact Form -->
+                <div class="contact-form-box">
+                    <div class="contact-header">
+                        <h2>Get in Touch 💌</h2>
+                        <p>Have questions or suggestions? We'd love to hear from you!</p>
+                    </div>
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="contactName" placeholder="Your Name" required>
+                            <div class="input-glow"></div>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="contactEmail" placeholder="Your Email" required>
+                            <div class="input-glow"></div>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="contactMessage" placeholder="Your Message..." rows="5" required></textarea>
+                            <div class="input-glow"></div>
+                        </div>
+                        <button type="submit" class="send-love-btn">
+                            <span>Send Love</span>
+                            <span class="btn-emoji">💌</span>
+                        </button>
+                        <div class="form-message" id="formMessage"></div>
+                    </form>
+                </div>
+
+                <!-- Developer Card -->
+                <div class="developer-card">
+                    <div class="dev-card-content">
+                        <div class="dev-avatar-container">
+                            <div class="dev-avatar">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <div class="floating-hearts">
+                                <span class="heart">❤️</span>
+                                <span class="heart">💖</span>
+                                <span class="heart">💝</span>
+                            </div>
+                        </div>
+                        <h3>Ansh</h3>
+                        <p class="dev-tagline">Made with ❤️ by Ansh</p>
+                        <div class="dev-social-links">
+                            <a href="#" title="GitHub" class="dev-link"><i class="fab fa-github"></i></a>
+                            <a href="#" title="Twitter" class="dev-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" title="LinkedIn" class="dev-link"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Floating background elements -->
+        <div class="contact-bg-element bg-1"></div>
+        <div class="contact-bg-element bg-2"></div>
+        <div class="contact-bg-element bg-3"></div>
+    </div>
+
+    <!-- AI Assistant Widget -->
+    <div class="ai-assistant-widget" id="aiAssistantWidget">
+        <!-- Float Button -->
+        <button class="ai-float-btn" id="aiFloatBtn" title="Open AI Assistant">
+            <i class="fas fa-robot"></i>
+            <span class="ai-badge" id="aiBadge" style="display: none;">1</span>
+        </button>
+
+        <!-- Chat Panel -->
+        <div class="ai-chat-panel" id="aiChatPanel" style="display: none;">
+            <!-- Header -->
+            <div class="ai-header">
+                <div class="ai-header-content">
+                    <div class="ai-logo">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="ai-header-text">
+                        <h3>ChatSphere AI</h3>
+                        <p>Your Smart Assistant</p>
+                    </div>
+                </div>
+                <button class="ai-close-btn" id="aiCloseBtn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="ai-quick-actions" id="aiQuickActions">
+                <button class="ai-quick-btn" data-action="help">
+                    <i class="fas fa-life-ring"></i>
+                    <span>Get Help</span>
+                </button>
+                <button class="ai-quick-btn" data-action="tips">
+                    <i class="fas fa-lightbulb"></i>
+                    <span>Chat Tips</span>
+                </button>
+                <button class="ai-quick-btn" data-action="features">
+                    <i class="fas fa-star"></i>
+                    <span>Features</span>
+                </button>
+                <button class="ai-quick-btn" data-action="contact">
+                    <i class="fas fa-envelope"></i>
+                    <span>Contact Dev</span>
+                </button>
+            </div>
+
+            <!-- Messages Container -->
+            <div class="ai-messages" id="aiMessages">
+                <div class="ai-message ai-bot-message">
+                    <div class="ai-message-avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="ai-message-content">
+                        <p>Hi! 👋 I'm ChatSphere AI. I'm here to help you with:</p>
+                        <ul>
+                            <li>📝 Chatting advice and tips</li>
+                            <li>💬 Discussion strategies</li>
+                            <li>⚙️ App feature guidance</li>
+                            <li>👨‍💻 Contact the developer</li>
+                        </ul>
+                    </div>
+                    <span class="ai-message-time">now</span>
+                </div>
+            </div>
+
+            <!-- Input Area -->
+            <div class="ai-input-area">
+                <input 
+                    type="text" 
+                    id="aiInput" 
+                    class="ai-input" 
+                    placeholder="Ask me anything..." 
+                    autocomplete="off"
+                >
+                <button class="ai-send-btn" id="aiSendBtn">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+
+            <!-- Typing Indicator -->
+            <div class="ai-typing-indicator" id="aiTypingIndicator" style="display: none;">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
